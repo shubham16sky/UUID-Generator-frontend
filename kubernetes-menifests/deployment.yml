@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uuid-frontend-deployment
+  labels:
+    app: uuid-generator-frontend
+spec:
+  template:
+    metadata:
+      name: uuid-generator-frontend
+      labels:
+        app: uuid-generator-frontend
+
+    spec:
+      containers:
+      - name: uuid-frontend-container
+        image: pranit039/uuid-generator-frontend:v20240616
+        ports:
+        - containerPort: 8081
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: uuid-generator-config
+  replicas: 3
+  selector:
+    matchLabels:
+      app: uuid-generator-frontend
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: 
+      maxUnavailable: 1
+  
