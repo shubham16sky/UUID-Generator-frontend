@@ -37,3 +37,8 @@ with st.container():
         uuid = get_uuid()
         st.markdown(f'<div style="display: flex; justify-content: center; align-items: center; height: 30px; background-color: #10785c; padding: 5px; border-radius: 5px;"><p style="color: white; margin: 0;">{uuid}</p></div>', unsafe_allow_html=True)
         st.balloons()
+with st.sidebar:
+    if st.button('HELLO'):
+        message = call_root_endpoint()
+        st.write(message)
+

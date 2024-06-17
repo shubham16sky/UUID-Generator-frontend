@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: uuid-frontend-container
-        image: pranit039/uuid-generator-frontend:v20240616
+        image: pranit039/uuid-generator-frontend:v20240617
         ports:
         - containerPort: 8081
         imagePullPolicy: Always
